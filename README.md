@@ -31,34 +31,35 @@ The library follows PayPal REST Orders v2 API, and below are the supported featu
 
  ### Orders API v2
 
- * [Create Order](https://developer.paypal.com/docs/api/orders/v2/#orders_create)
- * [Show Order Details](https://developer.paypal.com/docs/api/orders/v2/#orders_get)
- * [Capture Payment for Order](https://developer.paypal.com/docs/api/orders/v2/#orders_capture)
- * [Add Tracking for an Order](https://developer.paypal.com/docs/api/orders/v2/#orders_track_create)
- * [Verify Webhook Signature](https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature_post)
- * [List Webhooks](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_list)
- * [Delete Webhook](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete)
+    - [Create Order](https://developer.paypal.com/docs/api/orders/v2/#orders_create)
+    - [Show Order Details](https://developer.paypal.com/docs/api/orders/v2/#orders_get)
+    - [Capture Payment for Order](https://developer.paypal.com/docs/api/orders/v2/#orders_capture)
+    - [Add Tracking for an Order](https://developer.paypal.com/docs/api/orders/v2/#orders_track_create)
+    - [Verify Webhook Signature](https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature_post)
+    - [List Webhooks](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_list)
+    - [Delete Webhook](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete)
 
 If you have requirements to follow other features available in PayPal REST API, feel free to submit a PR following the coding standard, contributions are always welcome.
 
 ### Initiate Gateway Request
 
 ```php
-        use Omnipay\Omnipay;
+    use Omnipay\Omnipay;
 
-        $gateway = Omnipay::create('PayPalRest_Rest');
+    $gateway = Omnipay::create('PayPalRest_Rest');
 
-        $gateway->setClientId('xxxxxxxxxxx');
-        $gateway->setSecret('xxxxxxxxxxx');
-        $gateway->setTestMode('xxxxxxxxxxx');
+    $gateway->setClientId('xxxxxxxxxxx');
+    $gateway->setSecret('xxxxxxxxxxx');
+    $gateway->setTestMode('xxxxxxxxxxx');
 ```
 
 ### Access Token
-    ```php
-        $accessToken = $gateway->getToken();
-         or
-        $accessToken = $gateway->createToken()->send();
-    ```
+
+```php
+    $accessToken = $gateway->getToken();
+     or
+    $accessToken = $gateway->createToken()->send();
+```
 
 Note, the Access Token is not stored in the gateway at this point.
 
@@ -112,29 +113,29 @@ You can set a previously retrieved Access Token in the gateway as follows:
 ### Capture
 
 ```php
-        $response = $gateway->completePurchase([
-            'transactionReference' => 'PAYPAL-ORDER-ID',
-        ])->send();
+    $response = $gateway->completePurchase([
+        'transactionReference' => 'PAYPAL-ORDER-ID',
+    ])->send();
 
-        if ($response && $response->isSuccessful() && $response->isCaptured()) {
-            // handle success
-        }
+    if ($response && $response->isSuccessful() && $response->isCaptured()) {
+        // handle success
+    }
 
-        // handle failure
+    // handle failure
 ```
 
 ### Fetch PayPal Order
 
 ```php
-        $response = $gateway->fetchPurchase([
-            'transactionReference' => 'PAYPAL-ORDER-ID',
-        ])->send();
+    $response = $gateway->fetchPurchase([
+        'transactionReference' => 'PAYPAL-ORDER-ID',
+    ])->send();
 
-        if ($response && $response->isSuccessful()) {
-            // handle success
-        }
+    if ($response && $response->isSuccessful()) {
+        // handle success
+    }
 
-        // handle failure
+    // handle failure
 ```
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
