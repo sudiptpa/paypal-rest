@@ -156,4 +156,4 @@ or better yet, fork the library and submit a pull request.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
