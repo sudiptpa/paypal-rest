@@ -37,13 +37,15 @@ class TokenRequest extends AbstractRequest
             'Authorization' => 'Basic ' . base64_encode("{$this->getClientId()}:{$this->getSecret()}"),
         ];
 
-        $httpResponse = $this->httpClient->createRequest(
+        $httpResponse = $this->httpClient->request(
             $this->getHttpMethod(),
             $this->getEndpoint(),
             $headers,
             $body
-        )->send();
+        );
 
-        return $this->response = new Response($this, $httpResponse->json(), $httpResponse->getStatusCode());
+        $body = json_decode($httpResponse->getBody()->getContents(), true);
+
+        return $this->response = new Response($this, $body, $httpResponse->getStatusCode());
     }
 }
