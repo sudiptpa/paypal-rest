@@ -39,7 +39,7 @@ The library follows PayPal REST Orders v2 API, and below are the supported featu
 - [List Webhooks](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_list)
 - [Delete Webhook](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete)
 
-If you have requirements to follow other features available in PayPal REST API, feel free to submit a PR following the coding standard, contributions are always welcome.
+If you want the features other than mentioned above, then feel free to submit a PR by following the coding standard.
 
 ### Initiate Gateway Request
 
@@ -153,3 +153,7 @@ you can subscribe to.
 
 If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/sudiptpa/paypal-rest/issues),
 or better yet, fork the library and submit a pull request.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
