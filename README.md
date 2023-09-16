@@ -41,7 +41,7 @@ The library follows PayPal REST Orders v2 API, and below are the supported featu
 
 If you want the features other than mentioned above, then feel free to submit a PR by following the coding standard.
 
-### Initiate Gateway Request
+#### Initiate Gateway Request
 
 ```php
 use Omnipay\Omnipay;
@@ -53,7 +53,7 @@ $gateway->setSecret('xxxxxxxxxxx');
 $gateway->setTestMode('xxxxxxxxxxx');
 ```
 
-### Access Token
+#### Access Token
 
 ```php
 $accessToken = $gateway->getToken();
@@ -72,7 +72,7 @@ You can set a previously retrieved Access Token in the gateway as follows:
 $gateway->setToken($accessToken);
 ```
 
-### API Calls
+#### API Calls
 
 ```php
 $payload = [
@@ -110,7 +110,7 @@ if ($response && $response->isSuccessful()) {
 // handle the failure
 ```
 
-### Capture
+#### Capture
 
 ```php
 $response = $gateway->completePurchase([
@@ -124,7 +124,7 @@ if ($response && $response->isSuccessful() && $response->isCaptured()) {
 // handle failure
 ```
 
-### Fetch PayPal Order
+#### Fetch PayPal Order
 
 ```php
 $response = $gateway->fetchPurchase([
