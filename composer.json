@@ -1,5 +1,5 @@
 {
-    "name": "omnipay/paypal-rest",
+    "name": "sudiptpa/paypal-rest",
     "type": "library",
     "description": "PayPal REST API gateway for Omnipay payment processing library.",
     "keywords": [
