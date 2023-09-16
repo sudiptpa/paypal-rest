@@ -29,15 +29,15 @@ And run composer to update your dependencies:
 
 The library follows PayPal REST Orders v2 API, and below are the supported features.
 
- ### Orders API v2
+ #### Orders API v2
 
-    - [Create Order](https://developer.paypal.com/docs/api/orders/v2/#orders_create)
-    - [Show Order Details](https://developer.paypal.com/docs/api/orders/v2/#orders_get)
-    - [Capture Payment for Order](https://developer.paypal.com/docs/api/orders/v2/#orders_capture)
-    - [Add Tracking for an Order](https://developer.paypal.com/docs/api/orders/v2/#orders_track_create)
-    - [Verify Webhook Signature](https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature_post)
-    - [List Webhooks](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_list)
-    - [Delete Webhook](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete)
+- [Create Order](https://developer.paypal.com/docs/api/orders/v2/#orders_create)
+- [Show Order Details](https://developer.paypal.com/docs/api/orders/v2/#orders_get)
+- [Capture Payment for Order](https://developer.paypal.com/docs/api/orders/v2/#orders_capture)
+- [Add Tracking for an Order](https://developer.paypal.com/docs/api/orders/v2/#orders_track_create)
+- [Verify Webhook Signature](https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature_post)
+- [List Webhooks](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_list)
+- [Delete Webhook](https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete)
 
 If you have requirements to follow other features available in PayPal REST API, feel free to submit a PR following the coding standard, contributions are always welcome.
 
