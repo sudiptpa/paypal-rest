@@ -44,21 +44,21 @@ If you have requirements to follow other features available in PayPal REST API, 
 ### Initiate Gateway Request
 
 ```php
-    use Omnipay\Omnipay;
+use Omnipay\Omnipay;
 
-    $gateway = Omnipay::create('PayPalRest_Rest');
+$gateway = Omnipay::create('PayPalRest_Rest');
 
-    $gateway->setClientId('xxxxxxxxxxx');
-    $gateway->setSecret('xxxxxxxxxxx');
-    $gateway->setTestMode('xxxxxxxxxxx');
+$gateway->setClientId('xxxxxxxxxxx');
+$gateway->setSecret('xxxxxxxxxxx');
+$gateway->setTestMode('xxxxxxxxxxx');
 ```
 
 ### Access Token
 
 ```php
-    $accessToken = $gateway->getToken();
-     or
-    $accessToken = $gateway->createToken()->send();
+$accessToken = $gateway->getToken();
+ or
+$accessToken = $gateway->createToken()->send();
 ```
 
 Note, the Access Token is not stored in the gateway at this point.
@@ -69,73 +69,73 @@ You should implement your own method for saving and reusing the Access Token unt
 You can set a previously retrieved Access Token in the gateway as follows:
 
 ```php
-    $gateway->setToken($accessToken);
+$gateway->setToken($accessToken);
 ```
 
 ### API Calls
 
 ```php
-    $payload = [
-        'amount' => 20,
-        'transactionId' => '1001',
-        'transactionReference' => 'INV-1001',
-        'currency' => 'USD',
-        'items' => [
-            [
-                'name' => 'Test Product 1',
-                'description' => 'A sample description',
-                'quantity' => 1,
-                'price' => 20,
-                'sku' => 'ITEM-CODE1',
-                'category' => 'PHYSICAL_GOODS',
-                'reference' => 'ITEM',
-            ]
-        ],
-        'cancelUrl' => 'https://example.com/cancel/url',
-        'returnUrl' => 'https://example.com/return/url',
-    ];
+$payload = [
+    'amount' => 20,
+    'transactionId' => '1001',
+    'transactionReference' => 'INV-1001',
+    'currency' => 'USD',
+    'items' => [
+        [
+            'name' => 'Test Product 1',
+            'description' => 'A sample description',
+            'quantity' => 1,
+            'price' => 20,
+            'sku' => 'ITEM-CODE1',
+            'category' => 'PHYSICAL_GOODS',
+            'reference' => 'ITEM',
+        ]
+    ],
+    'cancelUrl' => 'https://example.com/cancel/url',
+    'returnUrl' => 'https://example.com/return/url',
+];
 
-    $response = $gateway->purchase($payload)->send();
+$response = $gateway->purchase($payload)->send();
 
-    if ($response && $response->isSuccessful()) {
-        // handle the success
+if ($response && $response->isSuccessful()) {
+    // handle the success
 
-        if ($response->isRedirect()) {
-            $response->redirect();
-        }
-
-        // do something else
+    if ($response->isRedirect()) {
+        $response->redirect();
     }
 
-    // handle the failure
+    // do something else
+}
+
+// handle the failure
 ```
 
 ### Capture
 
 ```php
-    $response = $gateway->completePurchase([
-        'transactionReference' => 'PAYPAL-ORDER-ID',
-    ])->send();
+$response = $gateway->completePurchase([
+    'transactionReference' => 'PAYPAL-ORDER-ID',
+])->send();
 
-    if ($response && $response->isSuccessful() && $response->isCaptured()) {
-        // handle success
-    }
+if ($response && $response->isSuccessful() && $response->isCaptured()) {
+    // handle success
+}
 
-    // handle failure
+// handle failure
 ```
 
 ### Fetch PayPal Order
 
 ```php
-    $response = $gateway->fetchPurchase([
-        'transactionReference' => 'PAYPAL-ORDER-ID',
-    ])->send();
+$response = $gateway->fetchPurchase([
+    'transactionReference' => 'PAYPAL-ORDER-ID',
+])->send();
 
-    if ($response && $response->isSuccessful()) {
-        // handle success
-    }
+if ($response && $response->isSuccessful()) {
+    // handle success
+}
 
-    // handle failure
+// handle failure
 ```
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
