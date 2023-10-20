@@ -111,6 +111,13 @@ class PurchaseRequest extends AbstractRequest
             ];
         }
 
+        if ($shipping_discount_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_SHIPPING_DISCOUNT)) {
+            $stack['shipping_discount'] = [
+                'currency_code' => $this->getCurrency(),
+                'value' => $this->formatAmount($shipping_discount_value),
+            ];
+        }
+
         return $stack;
     }
 
