@@ -23,6 +23,7 @@
         "psr-4": { "Omnipay\\PayPalRest\\" : "src/" }
     },
     "require": {
+        "php": "^7.2|^8",
         "omnipay/common": "~3.0"
     },
     "extra":{
