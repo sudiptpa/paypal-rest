@@ -69,45 +69,45 @@ class PurchaseRequest extends AbstractRequest
     {
         $stack = [];
 
-        if ($item_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_ITEM)) {
+        if ($item_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_ITEM)) {
             $stack['item_total'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($item_total),
+                'value' => $this->formatAmount($item_value),
             ];
         }
 
-        if ($tax_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_TAX)) {
+        if ($tax_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_TAX)) {
             $stack['tax_total'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($tax_total),
+                'value' => $this->formatAmount($tax_value),
             ];
         }
 
-        if ($shipping_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_SHIPPING)) {
+        if ($shipping_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_SHIPPING)) {
             $stack['shipping'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($shipping_total),
+                'value' => $this->formatAmount($shipping_value),
             ];
         }
 
-        if ($handling_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_HANDLING)) {
+        if ($handling_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_HANDLING)) {
             $stack['handling'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($handling_total),
+                'value' => $this->formatAmount($handling_value),
             ];
         }
 
-        if ($insurance_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_INSURANCE)) {
+        if ($insurance_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_INSURANCE)) {
             $stack['insurance'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($insurance_total),
+                'value' => $this->formatAmount($insurance_value),
             ];
         }
 
-        if ($discount_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_DISCOUNT)) {
+        if ($discount_value = $this->getTotalByReference($items, ItemTypeEnum::TYPE_DISCOUNT)) {
             $stack['discount'] = [
                 'currency_code' => $this->getCurrency(),
-                'value' => $this->formatAmount($discount_total),
+                'value' => $this->formatAmount($discount_value),
             ];
         }
 
