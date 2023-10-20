@@ -23,6 +23,7 @@ class PurchaseRequest extends AbstractRequest
                 [
                     'reference_id' => $this->getTransactionId(),
                     'invoice_id' => $this->getTransactionReference(),
+                    'description' => $this->getDescription(),
                     'shipping' => [
                         'type' => $card ? $this->getShippingType() : null,
                         'full_name' => $card ? $card->getShippingName() : null,
