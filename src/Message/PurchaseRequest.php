@@ -66,6 +66,8 @@ class PurchaseRequest extends AbstractRequest
      */
     public function getItemsBreakDown($items)
     {
+        $stack = [];
+
         if ($item_total = $this->getTotalByReference($items, ItemTypeEnum::TYPE_ITEM)) {
             $stack['item_total'] = [
                 'currency_code' => $this->getCurrency(),
