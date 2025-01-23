@@ -231,4 +231,14 @@ class RestGateway extends \Omnipay\Common\AbstractGateway
     {
         return $this->createRequest('\Omnipay\PayPalRest\Message\DeleteWebhookRequest', $parameters);
     }
+
+    /**
+     * @link https://developer.paypal.com/docs/api/payments/v2/#captures_refund
+     * @param array $parameters
+     * @return \Omnipay\PayPalRest\Message\RefundRequest
+     */
+    public function refund(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\PayPalRest\Message\RefundRequest', $parameters);
+    }
 }
