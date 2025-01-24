@@ -1,5 +1,5 @@
 {
-    "name": "sudiptpa/paypal-rest",
+    "name": "blastar/paypal-rest",
     "type": "library",
     "description": "PayPal REST API gateway for Omnipay payment processing library.",
     "keywords": [
@@ -11,7 +11,7 @@
         "paypal",
         "purchase"
     ],
-    "homepage": "https://github.com/sudiptpa/paypal-rest",
+    "homepage": "https://github.com/blastar/paypal-rest",
     "license": "MIT",
     "authors": [
         {
