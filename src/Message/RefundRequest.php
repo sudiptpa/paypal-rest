@@ -11,7 +11,12 @@ class RefundRequest extends AbstractRequest
      */
     public function getData()
     {
-        return [];
+        return [
+            'amount' => [
+                'value' => $this->getParameter('amount'),
+                'currency_code' => $this->getParameter('currency'),
+            ]
+        ];
     }
 
     /**
